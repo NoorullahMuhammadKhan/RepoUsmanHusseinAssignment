@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- site setup -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booking & Contact - Uzzy's Coaching</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />   
+  <style>
+     /* site theme */
+    :root {
+      --primary-color: #008000;  
+      --accent-color: #ffa500;    
+      --bg-dark: #0b3819;        
+      --text-light: #ffffff;      
+    }
+
+    body {
+      animation: fadeIn 1.8s ease-in; 
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+    }
+
+    nav {
+      background-color: var(--primary-color);
+    }
+
+    nav a, nav strong, nav ul li {
+      color: white !important;  
+    }
+
+    h1, h2, h3, h4, h5, h6, p, label, select, input, textarea, a, button {
+      color: white !important;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .form-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-bottom: 2rem;
+      backdrop-filter: blur(6px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hidden {
+      display: none;
+      font-weight: bold;
+      color: white;
+    }
+
+    input, select, textarea {
+      background-color: rgb(17, 27, 31);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      color: white;
+      padding: 0.75rem;
+      width: 100%;
+    }
+
+    input[type="date"] {
+      cursor: pointer;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="date"]::-moz-calendar-picker-indicator {
+      filter: invert(1);
+      opacity: 1;
+    }
+
+    select option {
+      background-color: #0b3819;
+      color: white;
+    }
+
+    button {
+      background-color: #ff7b00; 
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+
+    /* Book now orange button */
+    .sticky-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #ffa500, #ff4500);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ff9100, 0 0 20px #ff9100;
+      animation: pulseGlow 2s infinite;
+      z-index: 999;
+    }
+
+    .sticky-button:hover {
+      transform: scale(1.1);
+      background-color: #e56e00;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 10px #ff9100; }
+      50% { box-shadow: 0 0 20px #ff9100; }
+    }
+
+    /* Background animation  */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      pointer-events: none; 
+    }
+  </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+<div style="position: absolute; top: 1rem; left: 1rem; z-index: 999; display: flex; align-items: center;">
+  <img src="potential-logo.png" alt="Uzzy's Coaching Logo" style="height: 50px; border-radius: 8px;">
+  <span style="color: white; font-weight: bold; margin-left: 0.5rem; font-size: 1.2rem;">Uzzy’s Coaching</span>
+</div>
+
+<!-- Nav bar -->
+<nav class="container-fluid">
+  <ul></ul>
+  <ul>
+    <li><a href="homepage.html">Home</a></li>
+    <li><a href="about_us.html">About Us</a></li>
+    <li><a href="coaching programs.html">Coaching Programs</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="book_now.html">Contact</a></li>
+    <li><a href="https://www.instagram.com/uzzys_coaching?igsh=..." target="_blank">
+      <img src="instagram.png.png" alt="Instagram" style="height: 30px;"></a></li>
+    <li><a href="book_now.html" role="button">Book Now</a></li>
+  </ul>
+</nav>
+
+<main class="container">
+
+  <!-- Booking Form -->
+  <form id="bookingForm">
+    <input type="hidden" name="form-source" value="Booking Form" />
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required oninput="validatePhone(this)">
+
+    <label for="location">Preferred Location</label>
+    <select id="location" name="location" required>
+      <option value="Blacktown">Blacktown</option>
+      <option value="Glenwood">Glenwood</option>
+      <option value="Toongabbie">Toongabbie</option>
+      <option value="Rouse Hill">Rouse Hill</option>
+      <option value="Parramatta">Parramatta</option>
+    </select>
+
+    <label for="date">Preferred Date</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="time">Preferred Time</label>
+    <select id="time" name="time" required>
+      <option value="3:00 PM">3:00 PM</option>
+      <option value="4:00 PM">4:00 PM</option>
+      <option value="5:00 PM">5:00 PM</option>
+      <option value="6:00 PM">6:00 PM</option>
+      <option value="7:00 PM">7:00 PM</option>
+      <option value="8:00 PM">8:00 PM</option>
+    </select>
+
+    <label for="notes">Additional Notes</label>
+    <textarea id="notes" name="notes"></textarea>
+
+    <button type="submit">Submit Booking</button>
+  </form>
+
+  <!-- Message that shows after form is submitted -->
+  <p id="bookingMessage" style="display:none; margin-top: 1rem; font-weight: bold; color: lime;"></p>
+
+  <!-- Contact Form -->
+  <div class="form-card reveal" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:uh29542@gmail.com">uh29542@gmail.com</a></p>
+    <p>Phone: <a href="tel:0402234783">0402 234 783</a></p>
+
+    <form id="contactForm">
+      <input type="hidden" name="form-source" value="Contact Form" />
+      <label for="contact-name">Full Name</label>
+      <input type="text" id="contact-name" name="contact-name" required>
+
+      <label for="contact-email">Email</label>
+      <input type="email" id="contact-email" name="contact-email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send Inquiry</button>
+      <p id="contactMessage" style="display:none; margin-top: 1rem; font-weight: bold; color: lime;"></p>
+    </form>
+  </div>
+</main>
+
+<!-- book now button -->
+<a href="book_now.html" class="sticky-button">Book Now</a>
+
+<!-- Footer -->
+<footer class="container">
+  <small>© 2025 Uzzy’s Coaching • <a href="privacy.html">Privacy Policy</a> • <a href="terms of service.html">Terms of Service</a></small>
+</footer>
+
+<!-- AOS and background particle -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  AOS.init({ duration: 1000, easing: 'ease-out-back' });
+
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 60 },
+      size: { value: 3 },
+      move: { speed: 1 },
+      line_linked: { enable: true },
+      color: { value: "#ffa500" }
+    }
+  });
+
+  function validatePhone(input) {
+    input.value = input.value.replace(/[^0-9]/g, '').slice(0,10);
+  }
+</script>
+
+<!-- Booking form submission -->
+<script>
+  const bookingForm = document.getElementById('bookingForm');
+  const bookingMessage = document.getElementById('bookingMessage');
+
+  bookingForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(bookingForm);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xbloenrw", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        bookingMessage.textContent = "✅ Thanks! Your booking request has been sent.";
+        bookingMessage.style.display = "block";
+        bookingForm.reset();
+      } else {
+        bookingMessage.textContent = "⚠️ Something went wrong. Please try again.";
+        bookingMessage.style.display = "block";
+      }
+    } catch (error) {
+      bookingMessage.textContent = "🚫 Network error. Please check your connection.";
+      bookingMessage.style.display = "block";
+    }
+  });
+</script>
+
+<!-- Contact form submission -->
+<script>
+  const contactForm = document.getElementById('contactForm');
+  const contactMessage = document.getElementById('contactMessage');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xbloenrw", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        contactMessage.textContent = "✅ Thanks! Your message has been sent. We’ll get back to you soon.";
+        contactMessage.style.display = "block";
+        contactForm.reset();
+      } else {
+        contactMessage.textContent = "⚠️ Something went wrong. Please try again.";
+        contactMessage.style.display = "block";
+      }
+    } catch (error) {
+      contactMessage.textContent = "🚫 Network error. Please check your connection.";
+      contactMessage.style.display = "block";
+    }
+  });
+</script>
+</body>
+</html>

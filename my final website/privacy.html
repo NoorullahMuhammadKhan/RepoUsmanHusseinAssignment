@@ -1,0 +1,221 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+   <!-- site setup -->
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>Pricing - Uzzy's Coaching</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <style>
+      /* site theme */
+    body {
+      animation: fadeIn 1.2s ease-in; 
+      background-color: #0b3819;      
+      color: white;
+      margin: 0;
+    }
+
+    
+    nav {
+      background-color: #008000; 
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    nav a, nav ul li {
+      color: white !important;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;               
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-container img {
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .tiles-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .tile {
+      background: rgba(255, 255, 255, 0.05); 
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 1rem;
+      transition: all 0.3s ease-in-out;
+      overflow: hidden;
+      cursor: pointer;
+      height: 100px; 
+      position: relative;
+    }
+
+    .tile h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #ff7b00; 
+    }
+
+    .tile p {
+      opacity: 0;
+      height: 0;
+      transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      color: white;
+    }
+
+    .tile:hover {
+      height: auto;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .tile:hover p {
+      opacity: 1;
+      height: auto;
+    }
+
+    .sticky-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff7b00;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      animation: heartbeat 1.5s infinite ease-in-out;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .sticky-button:hover {
+      animation: none;
+      transform: scale(1);
+    }
+
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /*  Pulse effect */
+    @keyframes heartbeat {
+      0%, 50%, 100% { transform: scale(1); }
+      25%, 75%      { transform: scale(1.1); }
+    }
+
+    footer {
+      padding: 1rem;
+      text-align: center;
+      background-color: #0b3819;
+      color: white;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <!--  Navigation Bar -->
+  <nav>
+    <div class="logo-container">
+      <img src="potential-logo.png" alt="Uzzy's Coaching Logo">
+      <span>Uzzy’s Coaching</span>
+    </div>
+    <ul>
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="about_us.html">About Us</a></li>
+      <li><a href="coaching programs.html">Coaching Programs</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="book_now.html">Contact</a></li>
+      <li>
+        <a href="https://www.instagram.com/uzzys_coaching?igsh=..." target="_blank">
+          <img src="instagram.png.png" alt="Instagram" style="height: 30px;">
+        </a>
+      </li>
+      <li>
+        <a href="book_now.html" role="button" style="background-color: #007BFF; padding: 0.5rem 1rem; border-radius: 5px;">Book Now</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!--  Privacy Policy -->
+  <main class="tiles-container">
+    <div class="tile">
+      <h3>Who We Are</h3>
+      <p>We’re an Australian-based organisation that runs Uzzy's Coaching. Contact: uh29542@gmail.com / 0402 234 783</p>
+    </div>
+    <div class="tile">
+      <h3>What Info We Collect</h3>
+      <p>We collect your name, email, and phone number when you sign up or contact us.</p>
+    </div>
+    <div class="tile">
+      <h3>Why We Need Your Info</h3>
+      <p>We use your data to provide services, communicate, and improve our website.</p>
+    </div>
+    <div class="tile">
+      <h3>Sharing Your Info</h3>
+      <p>Only with necessary providers (e.g., payments). Never sold.</p>
+    </div>
+    <div class="tile">
+      <h3>Security & Retention</h3>
+      <p>We keep your data secure and retain it only as long as necessary.</p>
+    </div>
+    <div class="tile">
+      <h3>Your Rights</h3>
+      <p>You can access/correct data or opt-out of marketing anytime.</p>
+    </div>
+    <div class="tile">
+      <h3>Changes to This Policy</h3>
+      <p>Policy updates will be posted here regularly.</p>
+    </div>
+    <div class="tile">
+      <h3>Contact Us</h3>
+      <p>For questions: uh29542@gmail.com / 0402 234 783.</p>
+    </div>
+    <div class="tile">
+      <h3>Your Consent</h3>
+      <p>By using our services, you consent to our privacy policy.</p>
+    </div>
+  </main>
+
+  <!--  Book Now Button -->
+  <a href="book_now.html" class="sticky-button">Book Now</a>
+
+  <!-- Footer Navigation -->
+  <footer>
+    <small>
+      <a href="homepage.html">Home</a> • 
+      <a href="pricing.html">Pricing</a> • 
+      <a href="book_now.html">Contact</a>
+    </small>
+  </footer>
+</body>
+</html>

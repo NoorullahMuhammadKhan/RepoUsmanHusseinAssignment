@@ -1,0 +1,192 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+     <!-- site setup -->
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Terms of Service - Uzzy's Coaching</title> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
+    <style>
+        /* site theme */
+        body {
+            animation: fadeIn 1.2s ease-in; 
+            background-color: #0b3819;    
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #008000; 
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        nav a, nav ul li {
+            color: white !important; 
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+  
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-container img {
+            height: 40px;
+            border-radius: 8px;
+        }
+
+      
+        h2, h3 {
+            color: #ff7b00;
+        }
+
+    
+        main.container {
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        p, li {
+            color: white;
+            line-height: 1.6;
+        }
+
+        ul.terms-list {
+            padding-left: 1.5rem;
+        }
+
+        /* book now */
+        .sticky-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff7b00;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            animation: heartbeat 1.5s infinite ease-in-out; 
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sticky-button:hover {
+            animation: none;
+            transform: scale(1); 
+        }
+
+        footer {
+            padding: 1rem;
+            text-align: center;
+            background-color: #0b3819;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /*   Pulse animations */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        @keyframes heartbeat {
+            0%, 50%, 100% { transform: scale(1); }
+            25%, 75% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <!--  Navbar -->
+    <nav>
+        <div class="logo-container">
+            <img src="potential-logo.png" alt="Uzzy's Coaching Logo">
+            <span>Uzzy’s Coaching</span>
+        </div>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="about_us.html">About Us</a></li>
+            <li><a href="coaching_programs.html">Coaching Programs</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="book_now.html">Contact</a></li>
+            <li>
+                <a href="https://www.instagram.com/uzzys_coaching?igsh=..." target="_blank">
+                    <img src="instagram.png.png" alt="Instagram" style="height: 30px;">
+                </a>
+            </li>
+            <li><a href="book_now.html" role="button" style="background-color: #007BFF; padding: 0.5rem 1rem; border-radius: 5px;">Book Now</a></li>
+        </ul>
+    </nav>
+
+    <!--  T&C -->
+    <main class="container">
+        <h2>Terms of Service</h2>
+        <p><strong>Last updated: 28/02/2025</strong></p>
+
+        <h3>1. Welcome</h3>
+        <p>By using our website, you agree to these Terms. If you don’t agree, please do not use our services.</p>
+
+        <h3>2. Who We Are</h3>
+        <p>Uzzy’s Coaching is an Australian-based coaching service. Contact us at:</p>
+        <ul class="terms-list">
+            <li>Email: <a href="mailto:uh29542@gmail.com">uh29542@gmail.com</a></li>
+            <li>Phone: <a href="tel:0402234783">0402 234 783</a></li>
+        </ul>
+
+        <h3>3. Use of Our Services</h3>
+        <ul class="terms-list">
+            <li>You must be at least 12 years old to use our services.</li>
+            <li>You agree not to misuse our services in any way.</li>
+        </ul>
+
+        <h3>4. Content Policy</h3>
+        <ul class="terms-list">
+            <li>Do not steal or copy our business ideas, coaching methods, or website design.</li>
+            <li>All content on this site is owned by Uzzy’s Coaching and cannot be reproduced without permission.</li>
+        </ul>
+
+        <h3>5. Bookings and Conduct</h3>
+        <ul class="terms-list">
+            <li>Do not spam or make false bookings.</li>
+            <li>You will be banned if you miss your booking without notifying us or cancelling.</li>
+            <li>You may request a refund if you cancel at least 24 hours before your booking date.</li>
+        </ul>
+
+        <h3>6. Liability</h3>
+        <p>We are not responsible for any direct or indirect damages resulting from the use or inability to use our services.</p>
+
+        <h3>7. Changes to Terms</h3>
+        <p>We may update these terms at any time. Continued use of our site implies acceptance of any changes.</p>
+    </main>
+
+    <!--  Book Now button -->
+    <a href="book_now.html" class="sticky-button">Book Now</a>
+
+    <!--  Footer -->
+    <footer>
+        <small>© 2025 Uzzy’s Coaching • 
+          <a href="privacy.html">Privacy Policy</a> • 
+          <a href="terms of service.html">Terms of Service</a>
+        </small>
+    </footer>
+</body>
+</html>

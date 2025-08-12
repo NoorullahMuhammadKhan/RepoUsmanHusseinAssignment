@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- site setup -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Uzzy’s Coaching - Train Like A Pro</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+  <style>
+    /* site theme */
+    :root {
+      --primary-color: #008000;
+      --accent-color: #ffa500;
+      --bg-dark: #0b3819;
+      --text-light: #ffffff;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      margin: 0;
+    }
+    nav {
+      background-color: var(--primary-color);
+    }
+    nav a, nav strong {
+      color: var(--text-light) !important;
+    }
+    header.hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      color: white;
+    }
+    header.hero .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-family: 'Bebas Neue', cursive;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    /* ensures white text */
+h1, h2, h3, h4, h5, h6,
+p, a, strong, label, select,
+input, textarea, button {
+  color: #ffffff !important;
+}
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .book-now {
+      background-color: #ff7b00 !important;
+      color: white !important;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      font-size: 1.1rem;
+    }
+    .book-now:hover {
+      background-color: #e66e00 !important;
+    }
+    .card-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+      width: 100%;
+    }
+    .icon-card {
+      flex: 1 1 30%;
+      min-width: 280px;
+      max-width: 350px;
+      padding: 2rem;
+      background: rgba(14, 2, 83, 0);
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .icon-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px 5px rgba(155, 229, 100, 0.5);
+    }
+    .icon-card i {
+      font-size: 2rem;
+      color: #9be564;
+      margin-bottom: 1rem;
+    }
+    .icon-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .section-container {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    .section-container h2, .section-container h3 {
+      text-align: center;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+    }
+    .sticky-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #ffa500, #ff4500);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ff9100, 0 0 20px #ff9100;
+      animation: pulseGlow 2s infinite;
+      z-index: 999;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 10px #ff9100; }
+      50% { box-shadow: 0 0 20px #ff9100; }
+    }
+    .sticky-button:hover {
+      transform: scale(1.1);
+      background-color: #e56e00;
+    }
+    @keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.my-achievements-section,
+.my-achievements-section * {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.sticky-button {
+  animation: bounce 2s infinite;
+}
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    #particles-js canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    } 
+    /*typing animation  */
+    .typewriter {
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-family: 'Bebas Neue', cursive;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+  /* Typewriter animation  */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+} 
+/* fade-in animation */
+body {
+  opacity: 0;
+  animation: pageFadeIn 1.2s ease-in forwards;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+header.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(to bottom, rgba(11, 56, 25, 0.2), rgba(11, 56, 25, 1));
+  z-index: 0;
+  pointer-events: none;
+  transform: translateY(var(--scroll-amount, -30px));
+  transition: transform 0.3s ease-out;
+}
+
+/*  text fadeup */
+.hero-content {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.2s ease-out 0.4s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+<body>
+<div id="particles-js"></div>
+<div style="position: absolute; top: 1rem; left: 1rem; z-index: 999; display: flex; align-items: center;">
+  <img src="potential-logo.png" alt="Uzzy's Coaching Logo" style="height: 50px; border-radius: 8px;">
+  <span style="color: white; font-weight: bold; margin-left: 0.5rem; font-size: 1.2rem;">Uzzy’s Coaching</span>
+</div>
+<nav class="container-fluid">
+  <ul></ul>
+  <ul>
+    <li><a href="homepage.html">Home</a></li>
+    <li><a href="about_us.html">About Us</a></li>
+    <li><a href="coaching programs.html">Coaching Programs</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="book_now.html">Contact</a></li>
+    <li>
+      <a href="https://www.instagram.com/uzzys_coaching" target="_blank">
+        <img src="instagram.png.png" alt="Instagram" style="height: 30px;">
+      </a>
+    </li>
+    <li><a href="book_now.html" role="button">Book Now</a></li>
+  </ul>
+</nav>
+<header class="hero" data-aos="fade-in">
+  <video autoplay loop muted playsinline class="background-video">
+    <source src="placeholder.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-content">
+  <h1 class="typewriter">Train Like A Pro. Play Like A Champion.</h1>
+  <p>High-performance cricket coaching for the next generation.</p>
+  <a href="book_now.html" class="book-now"><i class="fas fa-calendar-check"></i> Book Your Free Trial</a>
+</div>
+</header>
+<main class="container">
+  <div class="section-container" data-aos="fade-up">
+    <hgroup>
+      <h2>Our Mission</h2>
+      <h3>Empowering young athletes with skills, strategy, and confidence</h3>
+    </hgroup>
+    <p>At Uzzy’s Coaching, we’re dedicated to nurturing well-rounded cricketers who are not only technically sound but also mentally strong and tactically sharp.</p>
+  </div>
+  <div class="section-container" data-aos="fade-up">
+    <h2>What You’ll Master</h2>
+    <div class="card-wrapper">
+      <div class="icon-card">
+        <i class="fas fa-bullseye"></i>
+        <h3>Technical Mastery</h3>
+        <p>From batting to fielding, we teach solid fundamentals tailored to each player.</p>
+      </div>
+      <div class="icon-card">
+        <i class="fas fa-chess-knight"></i>
+        <h3>Game Strategy</h3>
+        <p>Learn match awareness, smart decision-making, and reading the game.</p>
+      </div>
+      <div class="icon-card">
+        <i class="fas fa-dumbbell"></i>
+        <h3>Mental & Physical Strength</h3>
+        <p>We build confidence, focus, and resilience for high-pressure moments.</p>
+      </div>
+    </div>
+  </div>
+ <div class="section-container my-achievements-section" data-aos="fade-up">
+  <h2>My Achievements</h2>
+  <ul>
+    <li><i class="fas fa-medal"></i> NSW Premier Cricket Player</li>
+    <li><i class="fas fa-trophy"></i> Greenshield Club Winner</li>
+    <li><i class="fas fa-users"></i> Veteran of Men’s Grade Cricket</li>
+    <li><i class="fas fa-star"></i> Proven Performance Leader</li>
+  </ul>
+</div>
+  <div class="section-container" data-aos="fade-up">
+    <h2>The Uzzy Advantage</h2>
+    <div class="card-wrapper">
+      <div class="icon-card">
+        <i class="fas fa-user-check"></i>
+        <h3>Experienced Coaching</h3>
+        <p>Tailored plans to suit all skill levels.</p>
+      </div>
+      <div class="icon-card">
+        <i class="fas fa-users"></i>
+        <h3>Small Groups</h3>
+        <p>Individual attention to maximise progress.</p>
+      </div>
+      <div class="icon-card">
+        <i class="fas fa-heart"></i>
+        <h3>Supportive Culture</h3>
+        <p>A motivating, positive space for all players.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section-container" data-aos="zoom-in" style="text-align: center;">
+    <h2>Level Up Your Game Today</h2>
+    <p>Whether you’re starting out or chasing excellence — we’ve got the program for you.</p>
+    <a href="book_now.html" class="book-now" style="margin-top: 1rem;"><i class="fas fa-bolt"></i> Start Your Journey</a>
+  </div>
+</main>
+<section class="subscribe show" data-aos="fade-up">
+  <div class="container">
+    <h2>Subscribe for Updates</h2>
+    <form class="grid" onsubmit="event.preventDefault(); showSubscriptionMessage();">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+<script>
+  function showSubscriptionMessage() {
+    alert("Congratulations, you have subscribed to Uzzys coaching!");
+  }
+</script>
+<a href="book_now.html" class="sticky-button"><i class="fas fa-calendar-plus"></i> Book Now</a>
+<footer class="container">
+  <small><a href="privacy.html">Privacy Policy</a> • <a href="terms of service.html">Terms of Service</a></small>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  AOS.init({ duration: 1000, easing: 'ease-out-back' });
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 60 },
+      size: { value: 3 },
+      move: { speed: 1 },
+      line_linked: { enable: true },
+      color: { value: "#ffa500" }
+    }
+  });
+</script>
+<script>
+  // Scroll-based overlay animation
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const hero = document.querySelector(".hero");
+    if (hero) {
+      hero.style.setProperty('--scroll-amount', `${Math.min(scrollY / 5, 60)}px`);
+    }
+  });
+</script>
+</body>
+</html>

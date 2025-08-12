@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- site setup -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pricing - Uzzy's Coaching</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+     /* site theme */
+    :root {
+      --primary-color: #008000;  
+      --accent-color: #ffa500;   
+      --bg-dark: #0b3819;      
+      --text-light: #ffffff;    
+    }
+
+    body {
+      animation: fadeIn 1.8s ease-in;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+    }
+
+    nav {
+      background-color: var(--primary-color); 
+    }
+
+    nav a, nav strong, nav ul li {
+      color: white !important;  
+    }
+
+    h2, h3, h4, h5, h6, p, a, strong, label, select, input, textarea, button {
+      color: white !important;
+    }
+
+    .pricing-card {
+      background-color: white !important;
+      color: black !important;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.5s ease-in-out;
+    }
+  .pricing-card:hover {
+      transform: scale(1.05); 
+    }
+
+    .pricing-card h4, .pricing-card p, .pricing-card a {
+      color: black !important;
+    }
+
+    .sticky-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #ffa500, #ff4500);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ff9100, 0 0 20px #ff9100;
+      animation: pulseGlow 2s infinite;
+      z-index: 999;
+    }
+
+    .sticky-button:hover {
+      transform: scale(1.1);
+      background-color: #e56e00;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 10px #ff9100; }
+      50% { box-shadow: 0 0 20px #ff9100; }
+    }
+
+    /* background animation */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    #particles-js canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div style="position: absolute; top: 1rem; left: 1rem; z-index: 999; display: flex; align-items: center;">
+  <img src="potential-logo.png" alt="Uzzy's Coaching Logo" style="height: 50px; border-radius: 8px;">
+  <span style="color: white; font-weight: bold; margin-left: 0.5rem; font-size: 1.2rem;">Uzzy’s Coaching</span>
+</div>
+
+<!-- Nav bar -->
+<nav class="container-fluid">
+  <ul></ul>
+  <ul>
+    <li><a href="homepage.html">Home</a></li>
+    <li><a href="about_us.html">About Us</a></li>
+    <li><a href="coaching programs.html">Coaching Programs</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="book_now.html">Contact</a></li>
+    <li>
+      <a href="https://www.instagram.com/uzzys_coaching?igsh=..." target="_blank">
+        <img src="instagram.png.png" alt="Instagram" style="height: 30px;">
+      </a>
+    </li>
+    <li><a href="book_now.html" role="button">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- Main content -->
+<main class="container">
+  <div class="grid">
+    <section data-aos="fade-up">
+      <hgroup>
+        <h2>Our Pricing & Programs</h2>
+        <h3>Find the perfect training for your cricket journey.</h3>
+      </hgroup>
+
+      <!-- One-on-One Coaching -->
+      <h3>1️⃣ One-on-One Coaching (Premium Personalised Training)</h3>
+      <div class="grid">
+        <article class="pricing-card">
+          <h4>✅ 30-Minute Session ($40) 🏏</h4>
+          <p>Quick assessment & technique corrections. Focus on a specific skill.</p>
+          <a href="book_now.html" role="button">Book Now</a>
+        </article>
+        <article class="pricing-card">
+          <h4>✅ 1-Hour Session ($60) – MOST POPULAR 🏆</h4>
+          <p>In-depth breakdown of techniques, personalised drills & progress tracking.</p>
+          <a href="book_now.html" role="button">Book Now</a>
+        </article>
+        <article class="pricing-card">
+          <h4>✅ 5-Session Package ($300) 🎯</h4>
+          <p>Custom training schedule over multiple weeks for long-term development.</p>
+          <a href="book_now.html" role="button">Book Now</a>
+        </article>
+      </div>
+
+      <!-- Group Coaching -->
+      <h3>2️⃣ Group Coaching (Train Together, Improve Faster)</h3>
+      <div class="grid">
+        <article class="pricing-card">
+          <h4>✅ 1-Hour Group Training ($30 per player) 🤝</h4>
+          <p>Fun, engaging, and competitive training focused on teamwork.</p>
+          <a href="book_now.html" role="button">Book Now</a>
+        </article>
+        <article class="pricing-card">
+          <h4>✅ 10-Session Group Package ($250 per player) – BEST VALUE 💰</h4>
+          <p>Steady improvement with progress tracking over multiple sessions.</p>
+          <a href="book_now.html" role="button">Book Now</a>
+        </article>
+      </div>
+
+      <!-- Specialised coaching -->
+      <h3>3️⃣ Specialised & Advanced Offerings</h3>
+      <div class="grid">
+        <article class="pricing-card">
+          <h4>✅ Holiday Camps / Clinics (Custom Pricing) 🌟</h4>
+          <p>Multi-day intensive training with focus on game strategy and endurance.</p>
+          <a href="book_now.html" role="button">Book Now</a>
+        </article>
+        <article class="pricing-card">
+          <h4>✅ Advanced Player Development (Custom Pricing) 🎖</h4>
+          <p>Elite-level coaching for club and representative-level players.</p>
+          <a href="book_now.html" role="button">Book Now</a>
+        </article>
+      </div>
+    </section>
+  </div>
+</main>
+
+<a href="book_now.html" class="sticky-button">Book Now</a>
+
+<!-- Footer section -->
+<footer class="container">
+  <small>© 2025 Uzzy’s Coaching • <a href="privacy.html">Privacy Policy</a> • <a href="terms of service.html">Terms of Service</a></small>
+</footer>
+
+<!-- AOS and background particle -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  AOS.init({ duration: 1000, easing: 'ease-out-back' });
+
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 60 },
+      size: { value: 3 },
+      move: { speed: 1 },
+      line_linked: { enable: true },
+      color: { value: "#ffa500" }
+    }
+  });
+</script>
+</body>
+</html>
